@@ -1,0 +1,19 @@
+# git ignore files and floders
+
+# mac store
+package-lock.json
+.DS_Store
+**/.DS_Store
+
+# node libs
+/node_modules
+
+# config
+/config/config.js
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
