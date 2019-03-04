@@ -5,6 +5,7 @@
 */
 
 import express from "express" ;
+import chalk from "chalk" ;
 
 // import config
 import config from "../config/index" ;
@@ -32,8 +33,13 @@ app.all("*" , (req , res , next) => {
 	}
 }) ;
 
+// for testing
+app.get("/" , (req , res , next) => {
+	res.send("hello world") ;
+}) ;
+
 app.listen(config.port , () => {
 	console.log(
-		chalk.green(`成功监听端口：${config.port}`)
+		chalk.green(`server is running , at port ：${config.port}`)
 	)
-});
+}) ;
