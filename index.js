@@ -1,3 +1,3 @@
 // load entry file 
 
-require("/app/app.js") ;
+require("./app/app.js") ;
