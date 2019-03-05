@@ -6,6 +6,7 @@
 
 import express from "express" ;
 import chalk from "chalk" ;
+import router from "../routers/index" ;
 
 // import config
 import config from "../config/index" ;
@@ -37,6 +38,9 @@ app.all("*" , (req , res , next) => {
 app.get("/" , (req , res , next) => {
 	res.send("hello world") ;
 }) ;
+
+// mount router for your application
+router(app) ;
 
 app.listen(config.port , () => {
 	console.log(
