@@ -18,11 +18,8 @@ const pool = mysql.createPool(myDbConfig) ;
 // @sql - sql structor
 // @p - param
 // @c - callback
-exports.query = (sql , p , c) => {
-
+const query = function(sql , p , c){
 	let params = [] , callback = '' ;
-
-  console.log(arguments , arguments[1] == 'function') ;
 
 	// arguments judge
 	if (arguments.length == 2 && typeof arguments[1] == 'function') {
@@ -44,6 +41,7 @@ exports.query = (sql , p , c) => {
       callback && callback.apply(null, arguments) ;
     });
   });
-
 } ;
+
+module.exports = { query } ;
 
