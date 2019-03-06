@@ -18,7 +18,7 @@ const pool = mysql.createPool(myDbConfig) ;
 // @sql - sql structor
 // @p - param
 // @c - callback
-const query = function(sql , p , c){
+const query = function(sql , P , C){
 	let params = [] , callback = '' ;
 
 	// arguments judge
