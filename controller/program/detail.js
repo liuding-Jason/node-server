@@ -4,10 +4,12 @@
 	Date : 2019-03-05
 */
 
-class ProgramDetail {
+import BaseController from "../base/index" ;
+
+class ProgramDetail extends BaseController{
 
 	constructor(){
-
+		super() ;
 	}
 
 	getProgramDetailById(req , res , next){

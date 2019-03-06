@@ -3,11 +3,12 @@
 	Author : chenchao
 	Date : 2019-03-05
 */
+import BaseController from "../base/index" ; 
 
-class NumberList {
+class NumberList extends BaseController {
 
 	constructor(){
-
+		super() ;
 	}
 
 	getNumberList(req , res , next){
