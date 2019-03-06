@@ -34,6 +34,11 @@ app.all("*" , (req , res , next) => {
 	}
 }) ;
 
+// 解析参数
+var bodyParser = require('body-parser') ;
+app.use(bodyParser.json()) ;
+app.use(bodyParser.urlencoded({ extended: true })) ;
+
 // for testing
 app.get("/" , (req , res , next) => {
 	res.send("hello world") ;

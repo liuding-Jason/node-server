@@ -10,10 +10,10 @@ class NumberList {
 
 	}
 
-	getNumbers(){
-
+	getNumberList(req , res , next){
+		res.send('numbers') ;
 	}
 
 } ;
 
-module.exports = NumberList ;
+module.exports = new NumberList() ;

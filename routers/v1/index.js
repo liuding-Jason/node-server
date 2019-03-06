@@ -19,7 +19,7 @@ router.get('/numberList' , NumberList.getNumberList) ;
 router.get('/numberDetail/:numberId' , NumberDetail.getNumberDetailById) ;
 
 router.get('/programList' , ProgramList.getProgramList) ;
-router.get('/programDetail/:programId' , ProgramList.getProgramDetailById) ;
+router.get('/programDetail/:programId' , ProgramDetail.getProgramDetailById) ;
 
 module.exports = router ;
 

@@ -10,10 +10,10 @@ class ProgramDetail {
 
 	}
 
-	getProgramDetailById(){
-		
+	getProgramDetailById(req , res , next){
+		res.send('program') ;
 	}
 
 } ;
 
-module.exports = ProgramDetail ;
+module.exports = new ProgramDetail() ;

@@ -10,10 +10,10 @@ class NumberDetail {
 
 	}
 
-	getNumberDetailById(){
-
+	getNumberDetailById(req , res , next){
+		res.send("NumberDetail") ;
 	}
 
 } ;
 
-module.exports = NumberDetail ;
+module.exports = new NumberDetail() ;

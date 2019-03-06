@@ -10,10 +10,10 @@ class ProgramList {
 
 	}
 
-	getProgramList(){
-		
+	getProgramList(req , res , next){
+		res.send('programlist') ;
 	}
 
 } ;
 
-module.exports = ProgramList ;
+module.exports = new ProgramList() ;
