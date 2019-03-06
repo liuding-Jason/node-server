@@ -32,7 +32,7 @@ const query = function(sql , P , C){
   }
 
   // 从池子里面拿一个可以使用的连接
-  pool.getConnection(function (err, connection) {
+  pool.getConnection(function (error, connection) {
     // Use the connection
     connection.query(sql, params, function () {
       // 使用完毕之后，将该连接释放回连接池
