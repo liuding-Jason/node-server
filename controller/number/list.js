@@ -12,6 +12,7 @@ class NumberList extends BaseController {
 
 	constructor(){
 		super() ;
+		
 	}
 
 	getNumberList(req , res , next){
@@ -20,12 +21,12 @@ class NumberList extends BaseController {
 
 		db.query(sql , (err , result) => {
 			if(err){
-				res.send( this.returnFailedStatus('number query failed.') ) ;
+				res.send( 'number query failed.' ) ;
 				return ;
 			}
-			res.send(this.returnSuccessStatus({
+			res.send({
 				numberList : result
-			})) ;
+			}) ;
 		}) ;
 	}
 } ;
