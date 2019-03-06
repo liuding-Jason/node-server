@@ -18,7 +18,7 @@ class NumberList extends BaseController {
 		// get data from database
 		const sql = 'select * from number' ;
 
-		db.query(sql , function(err , result){
+		db.query(sql , (err , result) => {
 			if(err){
 				res.send( this.returnFailedStatus('number query failed.') ) ;
 				return ;
