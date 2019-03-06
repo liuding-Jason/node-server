@@ -5,6 +5,9 @@
 */
 import BaseController from "../base/index" ; 
 
+// import db
+import db from "../../db/pool.js" ;
+
 class NumberList extends BaseController {
 
 	constructor(){
@@ -12,9 +15,19 @@ class NumberList extends BaseController {
 	}
 
 	getNumberList(req , res , next){
-		res.send('numbers') ;
+		// get data from database
+		const sql = 'select * from number' ;
+		db.query(sql , (err , result) => {
+			if(err){
+				res.send( this.returnFailedStatus('number query failed.') ) ;
+				return ;
+			}
+			res.send(this.returnSuccessStatus({
+				numberList : result
+			})) ;
+		}) ;
+		
 	}
-
 } ;
 
 module.exports = new NumberList() ;
