@@ -12,21 +12,21 @@ class NumberList extends BaseController {
 
 	constructor(){
 		super() ;
-		
+		this.getNumberList = this.getNumberList.bind(this) ;
 	}
 
-	getNumberList(req , res , next){
+	async getNumberList(req , res , next){
 		// get data from database
 		const sql = 'select * from number' ;
 
 		db.query(sql , (err , result) => {
 			if(err){
-				res.send( 'number query failed.' ) ;
+				res.send( this.returnFailedStatus('number query failed.') ) ;
 				return ;
 			}
-			res.send({
+			res.send(this.returnSuccessStatus({
 				numberList : result
-			}) ;
+			})) ;
 		}) ;
 	}
 } ;
