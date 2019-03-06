@@ -6,7 +6,7 @@
 import BaseController from "../base/index" ; 
 
 // import db
-import db from "../../db/pool.js" ;
+import db from "../../db/pool" ;
 
 class NumberList extends BaseController {
 

@@ -22,6 +22,8 @@ exports.query = (sql , p , c) => {
 
 	let params = [] , callback = '' ;
 
+  console.log(arguments , arguments[1] == 'function') ;
+
 	// arguments judge
 	if (arguments.length == 2 && typeof arguments[1] == 'function') {
     callback = P ;
