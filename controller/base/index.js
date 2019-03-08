@@ -17,7 +17,7 @@ class BaseController {
 		intro : return success status for ajax
 		format : { code : 200 , message : 'ok' , data : {}}
 	*/
-	returnSuccessStatus(data = null , message = 'ok'){
+	returnSuccessStatus(data = {} , message = 'ok'){
 		return {
 			code : SUCCESS_CODE ,
 			message ,
@@ -27,7 +27,7 @@ class BaseController {
 	/*
 		intro : return failed status for ajax
 	*/
-	returnFailedStatus(message = 'request failed' , data = null , type = 'DEFAULT_ERROR'){
+	returnFailedStatus(message = 'request failed' , data = {} , type = 'DEFAULT_ERROR'){
 		if(!errorCode.hasOwnProperty(type)) type = 'DEFAULT_ERROR' ;
 		return {
 			code : errorCode[type] ,

@@ -12,11 +12,16 @@ import NumberDetail from "./number/detail" ;
 import ProgramList from "./program/list" ;
 import ProgramDetail from "./program/detail" ;
 
+// grade
+import GradeList from "./grade/list" ;
+
 export {
 	NumberList ,
 	NumberDetail ,
 
 	ProgramList ,
-	ProgramDetail
+	ProgramDetail ,
+
+	GradeList
 
 } ;

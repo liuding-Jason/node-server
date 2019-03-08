@@ -12,7 +12,7 @@ const MAX_CONNECTIONS = 50 ;
 const dbConfig = ( database = 'mysql' ) => {
 	return {
 		maxConnections : MAX_CONNECTIONS ,
-		host : 'localhost' ,
+		host : '10.252.184.16' ,
 		user : 'root' ,
 		password : '123456' ,
 		database : database

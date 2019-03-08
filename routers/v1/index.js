@@ -8,7 +8,8 @@ import {
 	NumberList , 
 	NumberDetail ,
 	ProgramList ,
-	ProgramDetail 
+	ProgramDetail ,
+	GradeList
 } from "../../controller/index" ;
 
 // init router
@@ -16,10 +17,13 @@ const router = express.Router() ;
 
 // router defination
 router.get('/numberList' , NumberList.getNumberList) ;
+router.get('/createNumber' , NumberList.runCreateNumber) ;
 router.get('/numberDetail/:numberId' , NumberDetail.getNumberDetailById) ;
 
 router.get('/programList' , ProgramList.getProgramList) ;
 router.get('/programDetail/:programId' , ProgramDetail.getProgramDetailById) ;
+
+router.get('/gradeList' , GradeList.getGradeList) ;
 
 module.exports = router ;
 
