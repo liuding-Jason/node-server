@@ -9,8 +9,10 @@ const errorCode = {
 	DATABASE_CONNECT_FAILED : 2000001 ,
 	// session does not expired
 	SESSION_DOES_NOT_EXPIRED : 1000001 ,
-	// login failed
+	// login failed that means your username or password is not right 
 	LOGIN_FAILED : 1000002 ,
+	// not login
+	NOT_LOGIN : 1000003 ,
 	// default error 
 	DEFAULT_ERROR : 1000000
 } ;

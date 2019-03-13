@@ -20,29 +20,36 @@ class Login extends BaseController {
 		res.send('Please Sing Up!') ;
 	}
 
+	loginFaild(){
+		return this.returnFailedStatus(USERINFO_ERROR_NOTE , 'LOGIN_FAILED') ;
+	}
+
 	// login in 
 	// check user info and set session who's name is session_id
 	async loginIn(req , res , next){
 		let { username , password } = req.query ;
 		// 校验字段 优化sql查询
 		if(!username || !password) {
-			res.end( this.returnFailedStatus(USERINFO_ERROR_NOTE) ) ;
+			res.send( this.loginFaild() ) ;
 			return ;
 		}
 		// TODO 密码需要进行加密操作
 		const sql = `select * from user where username='${username}' and password='${password}'` ;
 
+		console.log(req.session) ;
+
 		this.runDBQuery(sql)
 		.then((result) => {
 			if(result.length === 0){
-				res.send( this.returnFailedStatus(USERINFO_ERROR_NOTE) ) ;
+				res.send( this.loginFaild() ) ;
 				return ;
 			}
 			// create session
-			res.end( this.returnSuccessStatus() ) ;
+			req.session.isLogin = 1 ;
+			res.send( this.returnSuccessStatus() ) ;
 		})
 		.catch((err) => {
-			res.end( this.returnFailedStatus(USERINFO_ERROR_NOTE) ) ;
+			res.send( this.loginFaild() ) ;
 		})
 	}
 
@@ -55,7 +62,7 @@ class Login extends BaseController {
 
 		// 判断session_id是否存在
 		if(true){
-			req.session.views = 2 ;
+			req.session.isLogin = 0 ;
 			res.send( this.returnSuccessStatus() ) ;
 		}
 	}

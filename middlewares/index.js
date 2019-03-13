@@ -8,7 +8,10 @@
 import SessionRedis from "./session" ;
 import CookieParser from "./cookie" ;
 
+import Authentication from "./authentication" ;
+
 export {
 	SessionRedis ,
-	CookieParser
+	CookieParser ,
+	Authentication
 }

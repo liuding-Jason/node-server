@@ -23,7 +23,7 @@ const SessionRedis = session({
 		'maxAge': ExpireTime ,  	// 设置cookie的过期时间
 	} ,
 	// define session 存储的介质为 redis 而不是服务器内存
-	'store' : new RedisStore({ client : redisClient }) ,
+	// 'store' : new RedisStore({ client : redisClient }) ,
 	'secret' : SESSION_SECRET_KEY ,
  	// 是否每次都重新保存会话，建议false
  	'resave' : false,

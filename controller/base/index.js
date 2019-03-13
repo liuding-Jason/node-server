@@ -33,7 +33,7 @@ class BaseController {
 	/*
 		intro : return failed status for ajax
 	*/
-	returnFailedStatus(message = 'request failed' , data = {} , type = 'DEFAULT_ERROR'){
+	returnFailedStatus(message = 'request failed' , type = 'DEFAULT_ERROR' , data = {} ){
 		if(!errorCode.hasOwnProperty(type)) type = 'DEFAULT_ERROR' ;
 		return {
 			code : errorCode[type] ,

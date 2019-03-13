@@ -22,11 +22,11 @@ let redisClient = {} ;
 try {
 	redisClient = redis.createClient(port[0] , host , { password }) ;
 	console.log(
-		chalk.green(`redis client create success .`)
+		chalk.green(`redis client connection success .`)
 	) ;
 }catch(err){
 	console.log(
-		chalk.red(`redis client create failed , please try again...`)
+		chalk.red(`redis client connection failed , error is ${err} , please try again...`)
 	) ;
 }
 
@@ -34,7 +34,18 @@ try {
 	二、创建redis集群连接，并对外暴露redis的操作
 */
 let redisNumbers = port.map((p , i) => { return { host , port : p } }) ;
-const redisCluster = new Redis.Cluster(redisNumbers);
+let redisCluster = {} ;
+
+try {
+	redisCluster = new Redis.Cluster(redisNumbers) ;
+	console.log(
+		chalk.green(`redis cluster connection success .`)
+	) ;
+}catch(err){
+	console.log(
+		chalk.red(`redis cluster connection failed , error is ${err} , please try again...`)
+	);
+}
 
 // export
 module.exports = {redisClient , redisCluster} ;

@@ -7,7 +7,7 @@
 import express from "express" ;
 import chalk from "chalk" ;
 import router from "../routers/index" ;
-import { SessionRedis , CookieParser } from "../middlewares/index" ;
+import { SessionRedis , CookieParser , Authentication } from "../middlewares/index" ;
 
 // import config
 import config from "../config/index" ;
@@ -44,19 +44,9 @@ app.use(bodyParser.urlencoded({ extended: true })) ;
 app.use(CookieParser) ;
 // 添加session保持登陆状态，并将这部分数据持久化到redis中
 app.use(SessionRedis) ;
+// 添加session的验证，进行鉴权
+app.use(Authentication) ;
 
-// app.get('/', function(req, res, next) {
-//   var sess = req.session ;//用这个属性获取session中保存的数据，而且返回的JSON数据
-//   if (sess.views) {
-//     sess.views++ ;
-//     res.setHeader('Content-Type', 'text/html') ;
-//     res.send('<p>welcome ' + sess.views + 'times       ' + 'expires in:' + (sess.cookie.maxAge / 1000) + 's</p>')
-//     res.end();
-//   } else {
-//     sess.views = 1
-//     res.end('welcome to the session demo. refresh!')
-//   }
-// });
 
 app.get("/" , function(req , res , next){
 	res.send('hello world!') ;
