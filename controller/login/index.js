@@ -24,12 +24,11 @@ class Login extends BaseController {
 	// check user info and set session who's name is session_id
 	async loginIn(req , res , next){
 		let { username , password } = req.query ;
-		// 优化sql查询
+		// 校验字段 优化sql查询
 		if(!username || !password) {
-			res.send( this.returnFailedStatus(USERINFO_ERROR_NOTE) ) ;
+			res.end( this.returnFailedStatus(USERINFO_ERROR_NOTE) ) ;
 			return ;
 		}
-
 		// TODO 密码需要进行加密操作
 		const sql = `select * from user where username='${username}' and password='${password}'` ;
 
@@ -40,11 +39,10 @@ class Login extends BaseController {
 				return ;
 			}
 			// create session
-			// sess.views = `program_user_id_${user_id}` ;
-			res.send( this.returnSuccessStatus() ) ;
+			res.end( this.returnSuccessStatus() ) ;
 		})
 		.catch((err) => {
-			res.send( this.returnFailedStatus(USERINFO_ERROR_NOTE) ) ;
+			res.end( this.returnFailedStatus(USERINFO_ERROR_NOTE) ) ;
 		})
 	}
 
@@ -53,9 +51,11 @@ class Login extends BaseController {
 	async loginOut(req , res , next){
 		let { session_id = '' } = req.session ;
 
+		console.log( req.session ) ;
+
 		// 判断session_id是否存在
 		if(true){
-			// req.session.views = '' ;
+			req.session.views = 2 ;
 			res.send( this.returnSuccessStatus() ) ;
 		}
 	}

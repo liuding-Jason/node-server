@@ -5,7 +5,7 @@
 */
 import session from "express-session" ;
 import connectRedis from "connect-redis" ;
-import redisClient from "../db/redis" ;
+import { redisClient } from "../db/redis" ;
 
 // session 加密key
 const SESSION_SECRET_KEY = 'test-secert-key' ;

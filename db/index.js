@@ -5,7 +5,6 @@
 */
 
 import mysql from "mysql" ;
-import chalk
 import { dbconfig } from "../config/index" ;
 
 // init test db config

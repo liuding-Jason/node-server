@@ -6,6 +6,8 @@
 // import db
 import db from "../../db/pool" ;
 import chalk from "chalk" ;
+import { redisCluster } from "../../db/redis" ;
+
 
 import errorCode from "./errorCode" ;
 
@@ -57,6 +59,40 @@ class BaseController {
 			}) ;
 		}) ;
 	}
+
+	/*
+		intro : redis get
+	*/
+	getRedisClusterKey(key){
+		if(!key) return ;
+		return new Promise((resolve , reject) => {
+			redisCluster.get(key , (err , result) => {
+				if(err){
+					reject(err);
+				}
+				resolve(result) ;
+			})
+		});
+	}
+	/*
+		intro : set key and value in redis cluster
+	*/
+	setRedisClusterKey(key , value){
+		if(key && value){
+			try {
+				redisCluster.set(key , value) ;
+				console.log(
+					chalk.green(`redis cluster set success , key is ${key} !`)
+				);
+			}catch(err){
+				console.log(
+					chalk.red(`redis cluster set failed , key is ${key} !`)
+				) ;
+				throw new Error(err) ;
+			}
+		}
+	}
+
 } ;
 
 module.exports = BaseController ;

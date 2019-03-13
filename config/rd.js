@@ -8,7 +8,7 @@
 // redis cluster 
 const rdconfig = {
 	host : '10.252.184.16' ,
-	port : 7000 ,
+	port : [0 , 1 , 2 , 3 , 4 , 5].map((item) => { return 7000 + item }) ,
 	password : '123456'
 } ;
 
