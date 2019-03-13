@@ -3,6 +3,10 @@
 	Author : chenchao
 	Date : 2019-03-06
 */
+// import db
+import db from "../../db/pool" ;
+import chalk from "chalk" ;
+
 import errorCode from "./errorCode" ;
 
 // static verb
@@ -36,9 +40,23 @@ class BaseController {
 		}
 	}
 	/*
-		intro : mysql connection
+		intro : mysql connection 
+		note : mysql query is a async process , so you SHOULD use Promise 
 	*/
-
+	async runDBQuery(sql){
+		if(!sql) return ;
+		return new Promise(( resolve , reject ) => {
+			db.query(sql , (err , result) => {
+				if(err){
+					console.log(
+						chalk.red(`mysql query error , errorInfo is ${err}` )
+					) ;
+					reject( err ) ;
+				}
+				resolve(result) ;
+			}) ;
+		}) ;
+	}
 } ;
 
 module.exports = BaseController ;

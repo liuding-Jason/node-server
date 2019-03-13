@@ -5,9 +5,14 @@
 */
 
 import dbconfig from "./db" ;
+import rdconfig from "./rd" ;
+
 const config = {
-	// databse
+	// mysql config
 	dbconfig ,
+
+	// redis config
+	rdconfig ,
 
 	// server port
 	port : '3008' ,

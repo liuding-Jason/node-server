@@ -9,7 +9,7 @@ const MAX_CONNECTIONS = 50 ;
 
 // @database - your database setting , 
 // 'mysql' is the default option
-const dbConfig = ( database = 'mysql' ) => {
+const msConfig = ( database = 'mysql' ) => {
 	return {
 		maxConnections : MAX_CONNECTIONS ,
 		host : '10.252.184.16' ,
@@ -19,4 +19,4 @@ const dbConfig = ( database = 'mysql' ) => {
 	}
 } ;
 
-module.exports = dbConfig ;
+module.exports = msConfig ;

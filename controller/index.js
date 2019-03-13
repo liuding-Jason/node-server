@@ -4,6 +4,9 @@
 	Date : 2019-03-05
 */
 
+// login
+import Login from "./login" ;
+
 // numbers controllers
 import NumberList from "./number/list" ;
 import NumberDetail from "./number/detail" ;
@@ -16,6 +19,8 @@ import ProgramDetail from "./program/detail" ;
 import GradeList from "./grade/list" ;
 
 export {
+	Login ,
+
 	NumberList ,
 	NumberDetail ,
 
