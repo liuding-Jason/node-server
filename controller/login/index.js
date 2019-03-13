@@ -36,8 +36,6 @@ class Login extends BaseController {
 		// TODO 密码需要进行加密操作
 		const sql = `select * from user where username='${username}' and password='${password}'` ;
 
-		console.log(req.session) ;
-
 		this.runDBQuery(sql)
 		.then((result) => {
 			if(result.length === 0){
@@ -57,16 +55,9 @@ class Login extends BaseController {
 	// unset session who's name is session_id
 	async loginOut(req , res , next){
 		let { session_id = '' } = req.session ;
-
-		console.log( req.session ) ;
-
-		// 判断session_id是否存在
-		if(true){
-			req.session.isLogin = 0 ;
-			res.send( this.returnSuccessStatus() ) ;
-		}
+		req.session.isLogin = 0 ;
+		res.send( this.returnSuccessStatus() ) ;
 	}
-
 } ;
 
 module.exports = new Login() ;

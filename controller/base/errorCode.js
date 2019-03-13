@@ -14,7 +14,9 @@ const errorCode = {
 	// not login
 	NOT_LOGIN : 1000003 ,
 	// default error 
-	DEFAULT_ERROR : 1000000
+	DEFAULT_ERROR : 1000000 ,
+	// server internel error
+	SERVER_INTERNEL_ERROR : 5000000 ,
 } ;
 
 module.exports = errorCode ;
