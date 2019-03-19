@@ -18,7 +18,7 @@ class Login extends BaseController {
 	// check to sign up of users
 	signUp(req , res , next){
 		// test cluster connection
-		this.setRedisClusterKey('c' , 'cat') ;
+		this.setRedisKey('c' , 'cat') ;
 		res.send('Please Sing Up!') ;
 	}
 

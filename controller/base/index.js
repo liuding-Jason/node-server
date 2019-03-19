@@ -6,7 +6,7 @@
 // import db
 import db from "../../db/pool" ;
 import chalk from "chalk" ;
-import { redisCluster } from "../../db/redis" ;
+import { redisClient , redisCluster } from "../../db/redis" ;
 
 
 import errorCode from "./errorCode" ;
@@ -59,9 +59,42 @@ class BaseController {
 			}) ;
 		}) ;
 	}
+	/*
+		intro : redis single server get 
+	*/
+	getRedisKey(key){
+		if(!key) return ;
+		return new Promise((resolve , reject) => {
+			redisClient.get(key , (err , result) => {
+				if(err){
+					reject(err) ;
+				}
+				resolve(result) ;
+			}) ;
+		})
+	}
 
 	/*
-		intro : redis get
+		intro : redis single server set
+	*/
+	setRedisKey(key , value){
+		if(key && value){
+			try {
+				redisClient.set(key , value) ;
+				console.log(
+					chalk.green(`redis server set key=${key} success , value is ${value} !`)
+				);
+			}catch(err){
+				console.log(
+					chalk.red(`redis server set key=${key} failed !`)
+				) ;
+				throw new Error(err) ;
+			}
+		}
+	}
+	
+	/*
+		intro : redis cluster get
 	*/
 	getRedisClusterKey(key){
 		if(!key) return ;

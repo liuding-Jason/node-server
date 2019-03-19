@@ -31,14 +31,14 @@ try {
 }
 
 /*
-	二、创建redis集群连接，并对外暴露redis的操作
+	二、创建redis集群连接，并对外暴露redis的操作 
 */
 let redisNumbers = port.map((p , i) => { return { host , port : p } }) ;
 let redisCluster = {} ;
 
 try {
 	// TODO
-	redisCluster = new Redis.Cluster(redisNumbers) ;
+	// redisCluster = new Redis.Cluster(redisNumbers) ;
 	console.log(
 		chalk.green(`redis cluster connection success .`)
 	) ;
@@ -47,9 +47,6 @@ try {
 		chalk.red(`redis cluster connection failed , error is ${err} , please try again...`)
 	);
 }
-
-console.log(redisClient , redisCluster) ;
-
 // export
 module.exports = {redisClient , redisCluster} ;
 

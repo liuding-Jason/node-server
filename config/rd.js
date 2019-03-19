@@ -8,8 +8,8 @@
 // redis cluster 
 const rdconfig = {
 	host : '188.131.238.88' ,
-	// port : [6379] , // save for redis cluster connection
-	port : [0 , 1 , 2 , 3 , 4 , 5].map((item) => { return 7000 + item }) ,
+	port : [6379] , // save for redis cluster connection
+	// port : [0 , 1 , 2 , 3 , 4 , 5].map((item) => { return 7000 + item }) ,
 	password : '123456'
 } ;
 
