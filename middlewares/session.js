@@ -19,8 +19,8 @@ const SessionRedis = session({
 	// 设置通过cookie携带session
 	'cookie': {
 		// 'secure' : true ,		// 设置是否只有https的协议才可以访问
-		'httpOnly': true , 	// http协议中的cookie，浏览器不可以通过js脚本修改或者获取
-		'maxAge': ExpireTime ,  	// 设置cookie的过期时间
+		'httpOnly': true , 			// http协议中的cookie，浏览器不可以通过js脚本修改或者获取
+		'maxAge': ExpireTime ,  // 设置cookie的过期时间
 	} ,
 	// define session 存储的介质为 redis 而不是服务器内存
 	'store' : new RedisStore({ client : redisClient }) ,

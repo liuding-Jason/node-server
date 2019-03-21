@@ -47,7 +47,6 @@ app.use(SessionRedis) ;
 // 添加session的验证，进行鉴权
 app.use(Authentication) ;
 
-
 app.get("/" , function(req , res , next){
 	res.send('hello world!') ;
 }) ;

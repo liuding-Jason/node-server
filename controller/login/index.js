@@ -46,6 +46,7 @@ class Login extends BaseController {
 			}
 			// create session
 			req.session.isLogin = 1 ;
+			console.log(req.session) ;
 			res.send( this.returnSuccessStatus() ) ;
 		})
 		.catch((err) => {

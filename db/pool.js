@@ -10,7 +10,7 @@ import mysql from "mysql" ;
 import { dbconfig } from "../config/index" ;
 
 // init database config
-const myDbConfig = dbconfig('test') ;
+const myDbConfig = dbconfig('manager') ;
 
 // init pool
 const pool = mysql.createPool(myDbConfig) ;
