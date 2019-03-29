@@ -10,6 +10,7 @@ package-lock.json
 
 # config
 /config/config.js
+/config/env.js
 
 # logs
 npm-debug.log*

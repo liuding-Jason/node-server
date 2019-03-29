@@ -4,6 +4,8 @@
 	Date : 2019-03-05
 */
 
+import env from "./env" ;
+
 // define max connections for mysql pool
 const MAX_CONNECTIONS = 50 ;
 
@@ -12,7 +14,7 @@ const MAX_CONNECTIONS = 50 ;
 const msConfig = ( database = 'mysql' ) => {
 	return {
 		maxConnections : MAX_CONNECTIONS ,
-		host : '188.131.238.88' ,
+		host : env.host ,
 		port : '3340' , // mysql主从模式中，master的端口
 		user : 'root' ,
 		password : '123456' ,

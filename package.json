@@ -4,7 +4,9 @@
   "description": "a program of node server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1" ,
+    "dev" : "cross-env NODE_ENV=develop node ./index.js" ,
+    "prod" : "cross-env NODE_ENV=production node ./index.js"
   },
   "keywords": [
     "node",
